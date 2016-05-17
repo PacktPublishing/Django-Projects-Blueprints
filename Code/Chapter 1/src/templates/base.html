@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>BlueBlog</title>
+</head>
+<body>
+    {% block header %}
+    <ul>
+        {% if request.user.is_authenticated %}
+        {% block logged_in_nav %}{% endblock %}
+        <li><a href="{% url "logout" %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url "login" %}">Login</a></li>
+        <li><a href="{% url "user_registration"%}">Register Account</a></li>
+        {% endif %}
+    </ul>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

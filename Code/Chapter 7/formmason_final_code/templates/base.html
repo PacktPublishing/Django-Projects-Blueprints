@@ -1,0 +1,14 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Form Mason</title>
+</head>
+
+<body>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'create-form' %}">Create New Form</a>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

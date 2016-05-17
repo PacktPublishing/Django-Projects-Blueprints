@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% block content %}
+<h1>Status</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Node Name</th>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Last Updated</th>
+        </tr>
+
+        {% for node_name, data_type_to_data_point_map in status_data_dict.items %}
+            {% for data_type, data_point in data_type_to_data_point_map.items %}
+            <tr {% if data_point.has_alert %}class="has-alert"{% endif %}>
+                <td>{% if forloop.first %}{{ node_name }}{% endif %}</td>
+                <td>{{ data_type }}</td>
+                <td>{{ data_point.data_value }}</td>
+                <td>{{ data_point.datetime|naturaltime }}</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
+
+<style type="text/css" media="all">
+    tr.has-alert td:not(:first-child) {
+        color: red;
+    }
+</style>
+{% endblock %}

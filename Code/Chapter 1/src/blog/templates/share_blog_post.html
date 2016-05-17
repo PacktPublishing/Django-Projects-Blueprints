@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if can_be_shared_with %}
+<h2>Share {{ post.title }}</h2>
+<ul>
+    {% for blog in can_be_shared_with %}
+    <li><a href="{% url "share-post-with-blog" post_pk=post.pk blog_pk=blog.pk %}">{{ blog.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if is_shared_with %}
+<h2>Stop sharing with:</h2>
+<ul>
+    {% for blog in is_shared_with %}
+    <li><a href="{% url "stop-sharing-post-with-blog" post_pk=post.pk blog_pk=blog.pk %}">{{ blog.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

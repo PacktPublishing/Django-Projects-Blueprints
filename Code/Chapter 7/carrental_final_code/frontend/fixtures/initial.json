@@ -1,0 +1,35 @@
+[
+{
+  "model": "frontend.car",
+  "pk": 1,
+  "fields": {
+    "name": "BMW i8",
+    "image": "car_images/bmw-i8.jpg",
+    "description": "BMW i8 luxury sports car",
+    "daily_rent": 300,
+    "is_available": true
+  }
+},
+{
+  "model": "frontend.car",
+  "pk": 2,
+  "fields": {
+    "name": "Toyota Camry",
+    "image": "car_images/toyota-camry.png",
+    "description": "The Toyota Camry is an economy car suitable for most people",
+    "daily_rent": 100,
+    "is_available": true
+  }
+},
+{
+  "model": "frontend.car",
+  "pk": 3,
+  "fields": {
+    "name": "Dodge Charger",
+    "image": "car_images/dodge-charger.jpg",
+    "description": "The raw power of the Dodge Charger is sure to give you a thrilling ride",
+    "daily_rent": 200,
+    "is_available": true
+  }
+}
+]

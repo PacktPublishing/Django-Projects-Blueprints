@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Car Rental App</title>
+
+    <style type="text/css" media="all">
+    ul.nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.nav li {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.car-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li.car-list-item {
+        margin: 20px 0 0 0;
+        padding: 0;
+    }
+
+    div.image, div.name, div.rent {
+        width: 300px;
+        margin: 0;
+        padding: 0;
+    }
+
+    div.image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    div.name, div.rent {
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    div.rent {
+        border-top: 0px;
+    }
+
+    {% block extra_css %}
+    {% endblock %}
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

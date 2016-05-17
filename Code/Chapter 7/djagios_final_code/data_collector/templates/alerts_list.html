@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Defined Alerts</h1>
+
+{% if object_list %}
+<table>
+    <tr>
+        <th>Data Type</th>
+        <th>Min Value</th>
+        <th>Max Value</th>
+        <th>Node Name</th>
+        <th>Is Active</th>
+    </tr>
+
+    {% for alert in object_list %}
+    <tr>
+        <td>{{ alert.data_type }}</td>
+        <td>{{ alert.min_value }}</td>
+        <td>{{ alert.max_value }}</td>
+        <td>{{ alert.node_name }}</td>
+        <td>{{ alert.is_active }}</td>
+        <td><a href="{% url 'alerts-edit' pk=alert.pk %}">Edit</a></td>
+        <td><a href="{% url 'alerts-delete' pk=alert.pk %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<i>No alerts defined</i>
+{% endif %}
+<p><a href="{% url 'alerts-new' %}">Add New Alert</a></p>
+{% endblock %}

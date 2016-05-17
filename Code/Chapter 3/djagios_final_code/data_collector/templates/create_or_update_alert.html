@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if object %}
+<h1>Update Alert</h1>
+{% else %}
+<h1>New Alert</h1>
+{% endif %}
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="{% if object %}Update{% else %}Create{% endif %}" />
+    <a href="{% url 'alerts-list' %}">Cancel</a>
+</form>
+{% endblock %}

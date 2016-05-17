@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Responses for {{ form.title }}</h1>
+{% if object_list %}
+<table border="1px">
+    <tr>
+        {% for field_name in headers %}
+        <th>{{ field_name }}</th>
+        {% endfor %}
+    </tr>
+    {% for response in object_list %}
+    <tr>
+        {% for field_value in response %}
+        <td>{{ field_value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

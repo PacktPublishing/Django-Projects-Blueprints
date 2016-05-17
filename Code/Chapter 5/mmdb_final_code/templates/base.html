@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>MMDB</title>
+</head>
+<body>
+<h1>MMDB</h1>
+<div>
+<span>Select Language</span>
+<ul>
+            {% get_available_languages as available_languages %}
+            {% for lang_code, lang_name in available_languages %}
+            {% language lang_code %}<li><a href="{% url "movies-list" %}">{{ lang_name }}</a></li>{% endlanguage %}
+            {% endfor %}
+</ul>
+</div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

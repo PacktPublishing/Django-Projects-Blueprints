@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Search</h2>
+<form action="" method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Search" />
+</form>
+
+{% if category_aggs %}
+<h2>Categories</h2>
+<ul>
+{% for agg in category_aggs %}
+    <li>
+        <a href="{{ agg.url }}">{{ agg.name }}</a> ({{ agg.doc_count }})
+    </li>
+{% endfor %}
+</ul>
+{% if remove_category_url %}
+<a href="{{ remove_category_url }}">Remove Category Filter</a>
+{% endif %}
+{% endif %}
+
+<h2>Results</h2>
+<ul>
+    {% if products %}
+        {% for product in products %}
+        <li>
+            Name: <b>{{ product.name }}</b> <br />
+            <i>Category: {{ product.category }}</i> <br />
+            <i>Price: {{ product.price }}</i> <br />
+            {% if product.tags.all %}
+                Tags: (
+                {% for tag in product.tags.all %}
+                    {{ tag.name }}
+                    {% if not forloop.last %}
+                    ,
+                    {% endif %}
+                {% endfor %}
+                )
+            {% endif %}
+        </li>
+        {% endfor %}
+    {% else %}
+        No results found. Please try another search term
+    {% endif %}
+</ul>
+{% endblock %}

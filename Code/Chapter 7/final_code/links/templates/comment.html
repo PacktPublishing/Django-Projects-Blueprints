@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Comment</h1>
+    <p>
+        <b>You are commenting on</b>
+        <a href="{% url 'submission-detail' pk=submission.pk %}">{{ submission.title }}</a>
+    </p>
+
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Post Comment" />
+    </form>
+{% endblock %}
